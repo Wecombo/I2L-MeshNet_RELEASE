@@ -13,23 +13,21 @@
 </p>
 
 ## News
-
 :tada: Our I2L-MeshNet wons the **first and second place** at [3DPW challenge](https://virtualhumans.mpi-inf.mpg.de/3DPW_Challenge/) on unknown assocation track in part orientation and joint position metrics, respectively. :tada:
 
 ## Introduction  
+This repo is official **[PyTorch](https://pytorch.org)** implementation of **[I2L-MeshNet: Image-to-Lixel Prediction Network for Accurate 3D Human Pose and Mesh Estimation from a Single RGB Image (ECCV 2020)](https://arxiv.org/abs/2008.03713)**.
   
-This repo is official **[PyTorch](https://pytorch.org)** implementation of **[I2L-MeshNet: Image-to-Lixel Prediction Network for Accurate 3D Human Pose and Mesh Estimation from a Single RGB Image (ECCV 2020)](https://arxiv.org/abs/2008.03713)**.  
   
 ## Quick demo  
-You can try quick demo at `demo` folder.  
-  * Download the pre-trained I2L-MeshNet in [here](https://drive.google.com/drive/folders/1RdEeQZX4d6j_4VL8UXyv9fmrBr85_k8T?usp=sharing).
+* Install **[PyTorch](https://pytorch.org)** and Python >= 3.7.3 and run `sh requirements.sh`
+* Download the pre-trained I2L-MeshNet from [here](https://drive.google.com/drive/folders/1RdEeQZX4d6j_4VL8UXyv9fmrBr85_k8T?usp=sharing).
 * Prepare `input.jpg` and pre-trained snapshot at `demo` folder.
-* Download `basicModel_neutral_lbs_10_207_0_v1.0.0.pkl` at `common/utils/smplpytorch/smplpytorch/native/models` from [here](https://smpl.is.tue.mpg.de).
-* Run `python demo.py --gpu 0 --stage param --test_epoch 7` if you want to run on gpu 0.
+* Download `basicModel_f_lbs_10_207_0_v1.0.0.pkl`, `basicModel_m_lbs_10_207_0_v1.0.0.pkl`, and `basicModel_neutral_lbs_10_207_0_v1.0.0.pkl` at `common/utils/smplpytorch/smplpytorch/native/models` from [here](https://smpl.is.tue.mpg.de).
+* Go to `demo` folder and run `python demo.py --gpu 0 --stage param --test_epoch 7` if you want to run on gpu 0.
 * You can see `output_mesh.jpg` and `output_mesh.obj`.
 
 ## Directory  
-  
 ### Root  
 The `${ROOT}` is described as below.  
 ```  
@@ -132,6 +130,7 @@ ${ROOT}
 
 ## Running I2L-MeshNet 
 ### Start  
+* Install **[PyTorch](https://pytorch.org)** and Python >= 3.7.3 and run `sh requirements.sh`
 * In the `main/config.py`, you can change settings of the model including dataset to use, network backbone, and input size and so on.  
 * There are two stages. 1) `lixel` and 2) `param`. In the `lixel` stage, I2L-MeshNet predicts lixel-based 1D heatmaps for each human joint and mesh vertex. In `param` stage, I2L-MeshNet predicts SMPL parameters from lixel-based 1D heatmaps.
   
